@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "pricedown";
+  src: url("/pricedown.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Force default font, but we will override specific headers */
+body {
+  background-color: #000;
+  font-family: "pricedown", sans-serif; 
+}
+html, body {
+  overflow-y: hidden;
+}
+
