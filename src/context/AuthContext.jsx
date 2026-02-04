@@ -22,25 +22,33 @@ export const AuthProvider = ({ children }) => {
         }
     }, []);
 
-    // 2. Login Logic (Smart)
+    // 2. Login Logic (Updated to preserve Premium status)
     const login = (name, email, avatar) => {
-        const newUser = { name, email, avatar, lastLogin: new Date() };
+        
+        // Check if this user existed before to keep their Premium status
+        const existingUser = allUsers.find(u => u.email === email);
+        const isPremium = existingUser ? existingUser.isPremium : false; 
+
+        // Create the user object (Defaulting isPremium to false if new)
+        const newUser = { 
+            name, 
+            email, 
+            avatar, 
+            isPremium: isPremium, 
+            lastLogin: new Date() 
+        };
 
         // Update Current Session
         setUser(newUser);
         localStorage.setItem("ashstar_active_session", JSON.stringify(newUser));
 
         // Update "Database" History
-        // Check if user already exists by email
         const existingUserIndex = allUsers.findIndex(u => u.email === email);
-
         let updatedUsers = [...allUsers];
 
         if (existingUserIndex >= 0) {
-            // User exists, update their details (e.g., if they changed avatar)
             updatedUsers[existingUserIndex] = newUser;
         } else {
-            // New user, add to list
             updatedUsers.push(newUser);
         }
 
@@ -54,17 +62,45 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         setUser(null);
         localStorage.removeItem("ashstar_active_session");
-        // We DO NOT clear 'ashstar_users_db' so the history remains!
         window.location.reload();
     };
 
-    // 4. Helper: Check if email exists
+    // 4. Upgrade to Premium (The new function)
+    const upgradeToPremium = () => {
+        if (!user) return;
+
+        // Create updated user object
+        const updatedUser = { ...user, isPremium: true };
+
+        // 1. Update State & Active Session
+        setUser(updatedUser);
+        localStorage.setItem("ashstar_active_session", JSON.stringify(updatedUser));
+
+        // 2. Update the "Database" so it remembers next time
+        const updatedAllUsers = allUsers.map(u => 
+            u.email === user.email ? updatedUser : u
+        );
+        
+        setAllUsers(updatedAllUsers);
+        localStorage.setItem("ashstar_users_db", JSON.stringify(updatedAllUsers));
+    };
+
+    // 5. Helper: Check if email exists
     const checkEmailExists = (email) => {
         return allUsers.find(u => u.email === email);
     };
 
     return (
-        <AuthContext.Provider value={{ user, allUsers, login, logout, isModalOpen, setIsModalOpen, checkEmailExists }}>
+        <AuthContext.Provider value={{ 
+            user, 
+            allUsers, 
+            login, 
+            logout, 
+            upgradeToPremium, // Exporting the new function
+            isModalOpen, 
+            setIsModalOpen, 
+            checkEmailExists 
+        }}>
             {children}
         </AuthContext.Provider>
     );
