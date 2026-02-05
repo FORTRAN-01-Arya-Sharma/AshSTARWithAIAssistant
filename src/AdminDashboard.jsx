@@ -23,7 +23,7 @@ const AdminDashboard = () => {
     // Fetch All Reviews
     useEffect(() => {
         if (user?.email === ADMIN_EMAIL) {
-            fetch('http://localhost:5000/api/admin/reviews')
+            fetch('https://ashstarwithaiassistant.onrender.com/api/admin/reviews')
                 .then(res => res.json())
                 .then(data => setReviews(data))
                 .catch(err => console.error("Admin Fetch Error", err));
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
         if (!text) return alert("Reply cannot be empty");
 
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/reviews/${reviewId}/reply`, {
+            const res = await fetch(`https://ashstarwithaiassistant.onrender.com/api/admin/reviews/${reviewId}/reply`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ adminReply: text })
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
         if (!window.confirm("Purge this record from the database?")) return;
         
         try {
-            await fetch(`http://localhost:5000/api/admin/reviews/${reviewId}`, { method: 'DELETE' });
+            await fetch(`https://ashstarwithaiassistant.onrender.com/api/admin/reviews/${reviewId}`, { method: 'DELETE' });
             setReviews(reviews.filter(r => r._id !== reviewId));
         } catch (err) { alert("Delete Failed"); }
     };

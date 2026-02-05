@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if(user?.email) {
-        fetch(`http://localhost:5000/api/stats/${user.email}`)
+        fetch(`https://ashstarwithaiassistant.onrender.com/api/stats/${user.email}`)
             .then(res => res.json())
             .then(data => setStats(data));
     }

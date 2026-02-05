@@ -41,7 +41,7 @@ const AssistantPage = () => {
     // 1. FETCH REVIEWS
     useEffect(() => {
         if (!id) return;
-        fetch(`http://localhost:5000/api/reviews/${id}`)
+        fetch(`https://ashstarwithaiassistant.onrender.com/api/reviews/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (Array.isArray(data)) setReviews(data);
@@ -57,7 +57,7 @@ const AssistantPage = () => {
 
         setIsSubmitting(true);
         try {
-            const res = await fetch('http://localhost:5000/api/reviews', {
+            const res = await fetch('https://ashstarwithaiassistant.onrender.com/api/reviews', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

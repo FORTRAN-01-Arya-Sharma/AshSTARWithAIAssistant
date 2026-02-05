@@ -45,7 +45,7 @@ const ChatTerminal = ({ assistantId, themeColor, closeChat, isPremium }) => {
     if (!user?.email) return;
     const fetchSessions = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/sessions/${user.email}/${assistantId}`);
+            const res = await fetch(`https://ashstarwithaiassistant.onrender.com/api/sessions/${user.email}/${assistantId}`);
             const data = await res.json();
             setSessions(data);
             
@@ -65,7 +65,7 @@ const ChatTerminal = ({ assistantId, themeColor, closeChat, isPremium }) => {
     const fetchChat = async () => {
         setMessages([]); 
         try {
-            const res = await fetch(`http://localhost:5000/api/chat/${activeSessionId}`);
+            const res = await fetch(`https://ashstarwithaiassistant.onrender.com/api/chat/${activeSessionId}`);
             const data = await res.json();
             if (data.length === 0) {
                 setMessages([{ role: 'ai', text: isPremium ? `{{SUCCESS}} ELITE UPLINK ESTABLISHED.` : `System Online. Session ID: ${activeSessionId.slice(-4)}.` }]);
@@ -82,7 +82,7 @@ const ChatTerminal = ({ assistantId, themeColor, closeChat, isPremium }) => {
     const title = prompt("Enter Section Name (e.g., 'Diet Plan'):", "New Operation");
     if (!title) return;
     try {
-        const res = await fetch('http://localhost:5000/api/sessions', {
+        const res = await fetch('https://ashstarwithaiassistant.onrender.com/api/sessions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: user.email, assistantId, title })
@@ -136,7 +136,7 @@ const ChatTerminal = ({ assistantId, themeColor, closeChat, isPremium }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/chat', {
+      const response = await fetch('https://ashstarwithaiassistant.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
