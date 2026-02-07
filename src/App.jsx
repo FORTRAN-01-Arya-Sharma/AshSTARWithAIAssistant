@@ -107,7 +107,7 @@ const Home = () => {
         <div className="svg flex items-center justify-center fixed top-0 left-0 z-[200] w-full h-screen overflow-hidden bg-[#000]">
           <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
             <defs><mask id="viMask"><rect width="100%" height="100%" fill="black" /><g className="vi-mask-group"><text x="50%" y="50%" fontSize="250" textAnchor="middle" fill="white" dominantBaseline="middle" fontFamily="Arial Black" className="font-black">VI</text></g></mask></defs>
-            <image href="./bg.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#viMask)" />
+            <image href="./bg.webp" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#viMask)" />
           </svg>
         </div>
       )}
@@ -186,8 +186,8 @@ const Home = () => {
 
             {/* HERO CONTENT */}
             <div className='imagesdiv relative overflow-hidden w-full h-full'>
-              <div className='absolute inset-0 z-0 scale-[1.3]'><video className='w-full h-full saturate-1000 object-cover' src="./sky.mp4" autoPlay loop muted playsInline /><div className='absolute inset-0 z-10 brightness-100 opacity-30 mix-blend-overlay' /></div>
-              <img className='absolute saturate-300 scale-[1.03] top-0 left-0 color to-black w-full h-full object-cover z-20' src="./bg.png" alt="Foreground elements" />
+              <div className='absolute inset-0 z-0 scale-[1.3]'><video className='w-full h-full saturate-1000 object-cover' src="./sky.webm" autoPlay loop muted playsInline /><div className='absolute inset-0 z-10 brightness-100 opacity-30 mix-blend-overlay' /></div>
+              <img className='absolute saturate-300 scale-[1.03] top-0 left-0 color to-black w-full h-full object-cover z-20' src="./bg.webp" alt="Foreground elements" />
               <div className='text absolute text-pink-50 top-[38%] left-1/2 z-[30] -translate-x-1/2 -translate-y-1/2 w-full md:w-max flex flex-col gap-1 items-center md:items-start px-4'>
                 <h1 className='text-6xl md:text-[9rem] leading-[0.85] text-shadow-[1px_1px_0_black,-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black] text-shadow-lg text-shadow-black font-black tracking-tighter text-center md:text-left'>Get</h1>
                 <h1 className='text-6xl md:text-[9rem] leading-[0.85] text-orange-600 text-outline-2 text-shadow-[1px_1px_0_black,-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black] text-shadow-lg text-shadow-black font-black tracking-tighter text-center md:text-left'>Your</h1>
@@ -198,7 +198,7 @@ const Home = () => {
               {/* CHARACTER IMAGE - FIXED: No Gaps + Bigger Size */}
               <img
                 className='absolute saturate-175 z-30 filter drop-shadow-[0_30px_35px_rgba(0,0,0,1)] pointer-events-none bottom-0 right-[-25%] h-[65vh] w-auto object-contain object-bottom md:right-[-6%] md:left-auto md:h-[125vh] md:-bottom-[10%] md:w-auto md:transform-none'
-                src="./character.png"
+                src="./character.webp"
                 alt="Character"
               />
 
@@ -228,8 +228,8 @@ const Home = () => {
               {/* Image Section */}
               <div className='LeftImage relative w-full md:w-1/2 h-[40vh] md:h-[80vh] flex justify-center items-center group cursor-pointer mb-10 md:mb-0 order-1 md:order-1'>
                 <div className='absolute w-[80%] h-[80%] bg-yellow-500/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out'></div>
-                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform group-hover:opacity-0 group-hover:scale-95 group-hover:blur-sm z-10' src="./meSitting.png" alt="Sitting" />
-                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 z-20' src="./pose.png" alt="Posing" />
+                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform group-hover:opacity-0 group-hover:scale-95 group-hover:blur-sm z-10' src="./meSitting.webp" alt="Sitting" />
+                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 z-20' src="./pose.webp" alt="Posing" />
               </div>
 
               {/* Text Section */}
@@ -323,8 +323,8 @@ const Home = () => {
 
               <div className='ImageSide relative w-full md:w-1/2 h-[40vh] md:h-[80vh] flex justify-center items-center group cursor-pointer mb-10 md:mb-0'>
                 <div className='absolute w-[80%] h-[80%] bg-purple-500/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out'></div>
-                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform group-hover:opacity-0 group-hover:scale-95 group-hover:blur-sm z-10' src="./setup.png" alt="Setup" />
-                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 z-20' src="./standing.png" alt="Standing" />
+                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform group-hover:opacity-0 group-hover:scale-95 group-hover:blur-sm z-10' src="./setup.webp" alt="Setup" />
+                <img className='absolute h-full object-contain transition-all duration-700 ease-in-out transform opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 z-20' src="./standing.webp" alt="Standing" />
               </div>
             </div>
           </div>

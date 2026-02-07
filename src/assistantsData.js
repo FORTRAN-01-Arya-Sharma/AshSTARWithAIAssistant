@@ -4,7 +4,7 @@ export const assistantsData = {
     title: "TaskMaster AI",
     tagline: "STILL RUNNING. NEVER STOP.",
     themeColor: "#fbbf24", // Yellow
-    heroImage: "/TaskMaster.png", // UPDATED LINK
+    heroImage: "/TaskMaster.webp", // UPDATED LINK
     description: "Your personal productivity partner designed to help you stay organized and focused. It creates smart daily schedules, breaks large goals into simple steps.",
     features: [
       { title: "Smart Scheduling", desc: "Auto-arranges your day based on your energy levels." },
@@ -22,7 +22,7 @@ export const assistantsData = {
     title: "IdeaForge AI",
     tagline: "CREATE. INNOVATE.",
     themeColor: "#a855f7", // Purple
-    heroImage: "/IdeaForge.png", // UPDATED LINK
+    heroImage: "/IdeaForge.webp", // UPDATED LINK
     description: "Built for creators who need fresh ideas on demand. Generates unique content concepts, scripts, and branding strategies instantly.",
     features: [
       { title: "Viral Hooks", desc: "Generates hooks that grab attention." },
@@ -40,7 +40,7 @@ export const assistantsData = {
     title: "FitMentor AI",
     tagline: "DONT STOP. KEEP GOING.",
     themeColor: "#f97316", // Orange
-    heroImage: "/FitMentor.png", // UPDATED LINK
+    heroImage: "/FitMentor.webp", // UPDATED LINK
     description: "Your personal fitness coach. Builds custom workout routines and diet plans tailored to your body type.",
     features: [
       { title: "Form Check", desc: "Analyzes video to fix form." },
@@ -58,7 +58,7 @@ export const assistantsData = {
     title: "CodeBuddy AI",
     tagline: "DEBUG. DEPLOY.",
     themeColor: "#22c55e", // Green
-    heroImage: "/CodeBuddy.png", // UPDATED LINK
+    heroImage: "/CodeBuddy.webp", // UPDATED LINK
     description: "Makes coding easier. Explains concepts, solves bugs, and prepares you for interviews.",
     features: [
       { title: "Bug Hunter", desc: "Finds logic errors." },
@@ -76,7 +76,7 @@ export const assistantsData = {
     title: "Companion AI",
     tagline: "ALWAYS HERE.",
     themeColor: "#ec4899", // Pink
-    heroImage: "/ComPanion.png", // UPDATED LINK (Matched Capital 'P' from screenshot)
+    heroImage: "/ComPanion.webp", // UPDATED LINK (Matched Capital 'P' from screenshot)
     description: "Your friendly conversational partner. Perfect for motivation, clarity, and friendly interaction.",
     features: [
       { title: "Deep Convo", desc: "Remembers past chats." },

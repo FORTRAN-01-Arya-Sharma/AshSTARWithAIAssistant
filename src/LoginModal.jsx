@@ -4,11 +4,11 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 const avatars = [
-    "/character.png",
-    "/pose.png",
-    "/meSitting.png",
-    "/TaskMaster.png",
-    "/IdeaForge.png"
+    "/character.webp",
+    "/pose.webp",
+    "/meSitting.webp",
+    "/TaskMaster.webp",
+    "/IdeaForge.webp"
 ];
 
 const LoginModal = () => {
