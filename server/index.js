@@ -191,31 +191,24 @@ app.get('/api/stats/:email', async (req, res) => {
 });
 
 // --- THE ROBUST CHAT ROUTE ---
-app.post('/api/chat', async (req, res) => {
+app.post('/api/chat', async (req, res) => { // <--- ENSURE 'async' IS HERE
   const { message, assistantId, isPremium, email, sessionId } = req.body;
 
-  // 1. Prepare Variables
   let systemInstruction = PERSONAS[assistantId] || "You are a helpful AI.";
-  if (isPremium) systemInstruction += `\n[PREMIUM MODE ACTIVATED] Detailed. Offer SECRET TIP. End with exactly one tag: {{HAPPY}}, {{SUCCESS}}, {{WARNING}}, etc.`;
-
   const prompt = `${systemInstruction}\n\nUser: ${message}\nAI:`;
   let aiText = null;
 
-  // 2. ATTEMPT AI GENERATION (The Hydra Loop)
+  // 2. THE HYDRA LOOP
   for (const modelName of MODEL_FALLBACKS) {
       try {
         const model = genAI.getGenerativeModel({ model: modelName });
-        const result = await model.generateContent(prompt);
+        const result = await model.generateContent(prompt); // <--- This 'await' requires the 'async' above
         aiText = result.response.text();
-        if (aiText) {
-             console.log(`✅ SUCCESS with ${modelName}`); // Visual confirmation
-             break; 
-        }
+        if (aiText) break; 
       } catch (e) {
-        // PRINT THE REAL REASON IT FAILED
         console.warn(`❌ Failed with ${modelName}:`, e.message); 
       }
-    }
+  }
 
   // 3. NUCLEAR FALLBACK (Simulation Mode)
   if (!aiText) {
